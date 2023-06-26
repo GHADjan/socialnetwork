@@ -27,7 +27,7 @@ class Passwords(db.Model):
 class PostPhoto(db.Model):
     __tablename__ = 'user_photos'
     photo_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    user_id = db.Colmun(db.Integer, db.ForeignKey('users.user_id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable=False)
     photo_path = db.Column(db.String, nullable=False)
 
     user_fk = db.relationship(User)
@@ -62,8 +62,9 @@ class PostComment(db.Model):
 
 #Таблица для хэштега
 class HashTag(db.Model):
+    __tablename__ = 'hashtag'
     hashtag_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    post_id = db.Column(db.Integer, db.ForeignKet('user_post.post_id'), nullable=False)
+    post_id = db.Column(db.Integer, db.ForeignKey('user_post.post_id'), nullable=False)
     hashtag_name = db.Column(db.String, nullable=True)
 
     hashtag_fk = db.relationship(Post)
