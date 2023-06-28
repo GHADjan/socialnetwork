@@ -1,4 +1,4 @@
-from models import Post, PostPhoto, PostComment, db
+from database.models import Post, PostPhoto, PostComment, db
 
 
 # Получить все посты

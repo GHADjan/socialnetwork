@@ -1,4 +1,4 @@
-from models import User, Passwords, db
+from database.models import User, Passwords, db
 
 
 # Регистрация пользователя
@@ -33,14 +33,15 @@ def get_all_users_db():
 
 # Получить конкретного пользователя
 def get_exact_user_db(user_id):
-    user = User.query.filter_by(user_id=user_id).first()
-    return user
+    exact_user = User.query.filter_by(user_id=user_id).first()
+    return exact_user
 
 
 # Удалить пользовтеля из базы
 def delete_user_db(user_id):
     user = User.query.filter_by(user_id=user_id).first()
-    if user is not None:
+    if user:
         db.session.delete(user)
         db.session.commit()
-
+        return True
+    return False
