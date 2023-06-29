@@ -17,22 +17,21 @@ db.init_app(app)
 api.init_app(app)
 
 
-
 @app.route('/')
 def test_api():
 
     return render_template('test.html')
 
-
+#
 # Зарегистрировать компоненты
-# app.register_blueprint(comment_bp)
-# app.register_blueprint(hashtag_bp)
-# app.register_blueprint(photo_bp)
-# app.register_blueprint(user_bp)
-# app.register_blueprint(post_bp)
+app.register_blueprint(comment_bp)
+app.register_blueprint(hashtag_bp)
+app.register_blueprint(photo_bp)
+app.register_blueprint(user_bp)
+app.register_blueprint(post_bp)
 # Swagger
 app.register_blueprint(swagger_bp)
 
 
 # Запуск
-app.run()
+# app.run()
